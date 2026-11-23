@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>منيره القحطاني | السيرة المهنية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      /* لوحة ألوان احترافية هادئة ومريحة للعين */
+      --bg-page: #f4f6f8;
+      --bg-card: #ffffff;
+      --bg-subtle: #f8fafc;
+      --primary: #1e3a5f;        /* أزرق كحلي أردوازي وقور */
+      --primary-light: #2c5282;
+      --accent: #3182ce;         /* أزرق هادئ */
+      --accent-tint: #ebf4ff;
+      --text-heading: #1a202c;
+      --text-body: #4a5568;
+      --text-muted: #718096;
+      --border: #e2e8f0;
+      --shadow-card: 0 2px 12px rgba(26, 32, 44, 0.04);
+      --shadow-hover: 0 8px 24px rgba(30, 58, 95, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-body);
+      line-height: 1.8;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* شريط علوي رفيع يعزز الهوية المؤسسية للسيرة */
+    .top-accent-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      width: 100%;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 3.25rem 1.5rem 4rem;
+    }
+
+    /* تأثير الظهور الهادئ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 1. الترويسة + النبذة (تصميم سيرة ذاتية احترافية) */
+    header.cv-header {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.75rem 2.5rem;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 2rem;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      gap: 1.35rem;
+      padding-bottom: 1.75rem;
+      margin-bottom: 1.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .monogram-badge {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      background-color: var(--primary);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      flex-shrink: 0;
+    }
+
+    .header-identity h1 {
+      font-size: 1.95rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
+    }
+
+    .bio-section-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .bio-content {
+      color: var(--text-body);
+      font-size: 1.05rem;
+      font-weight: 400;
+      background-color: var(--bg-subtle);
+      border-right: 3px solid var(--primary);
+      padding: 1.25rem 1.5rem;
+      border-radius: 8px 0 0 8px;
+    }
+
+    .bio-content p {
+      margin-bottom: 0.45rem;
+    }
+
+    .bio-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 2. قسم مهارات التواصل */
+    section.cv-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.25rem 2.5rem;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 2rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--primary);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-item {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.15rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .skill-item:hover {
+      background-color: #ffffff;
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .skill-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: var(--accent-tint);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .skill-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .skill-text {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      line-height: 1.45;
+    }
+
+    /* 3. قسم البريد الإلكتروني */
+    section.contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 2.5rem;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .contact-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+
+    .contact-address {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .contact-buttons {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background-color: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.75rem 1.45rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background-color: var(--bg-subtle);
+      color: var(--text-heading);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.15rem;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-outline:hover {
+      background-color: #edf2f7;
+      border-color: #cbd5e1;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 2rem 1rem 3rem;
+      }
+
+      header.cv-header,
+      section.cv-section,
+      section.contact-card {
+        padding: 1.75rem 1.25rem;
+      }
+
+      .header-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.9rem;
+      }
+
+      .header-identity h1 {
+        font-size: 1.65rem;
+      }
+
+      .bio-content {
+        padding: 1rem 1.15rem;
+        font-size: 0.98rem;
+      }
+
+      section.contact-card {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-accent-bar"></div>
+
+  <main class="container">
+    <!-- 1) الترويسة + النبذة -->
+    <header class="cv-header fade-in">
+      <div class="header-top">
+        <div class="monogram-badge" aria-hidden="true">م ق</div>
+        <div class="header-identity">
+          <h1>منيره القحطاني</h1>
+        </div>
+      </div>
+
+      <span class="bio-section-label">الملف التعريفي</span>
+      <div class="bio-content">
+        <p>حاصلة على درجة البكالوريوس في الأحياء ودرجة الماجستير في المناهج وطرق تدريس العلوم.</p>
+        <p>أدرس حاليًا بكالوريوس تخصص اللغة الإنجليزية والترجمة، مع اهتمام بتطوير الأداء التعليمي.</p>
+        <p>أمتلك مهارات تدريس وإلقاء قوية، إلى جانب وعي تقني وأمني رقمي يساعدني في تقديم محتوى فعال.</p>
+      </div>
+    </header>
+
+    <!-- 2) قسم مهارات التواصل -->
+    <section class="cv-section fade-in" aria-labelledby="skills-title">
+      <div class="section-header">
+        <h2 id="skills-title" class="section-title">
+          <span class="section-title-dot" aria-hidden="true"></span>
+          مهارات التواصل
+        </h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- 1 -->
+        <div class="skill-item">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" y1="19" x2="12" y2="23"></line>
+              <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+          </div>
+          <span class="skill-text">مهارة التدريس والالقاء</span>
+        </div>
+
+        <!-- 2 -->
+        <div class="skill-item">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <span class="skill-text">استخدام التكنولوجيا بفاعلية</span>
+        </div>
+
+        <!-- 3 -->
+        <div class="skill-item">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <span class="skill-text">الوعي بالأمن السيبراني</span>
+        </div>
+
+        <!-- 4 -->
+        <div class="skill-item">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+            </svg>
+          </div>
+          <span class="skill-text">القيادة والتخطيط</span>
+        </div>
+
+        <!-- 5 -->
+        <div class="skill-item">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <span class="skill-text">مهارات التواصل والتفاعل مع الطلاب/الفرق</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) قسم البريد الإلكتروني -->
+    <section class="contact-card fade-in" aria-labelledby="contact-title">
+      <div class="contact-info">
+        <h2 id="contact-title" class="contact-title">البريد الإلكتروني</h2>
+        <span class="contact-address" dir="ltr">munira4f@gmail.com</span>
+      </div>
+
+      <div class="contact-buttons">
+        <a href="mailto:munira4f@gmail.com" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>مراسلة عبر البريد</span>
+        </a>
+        <button type="button" class="btn-outline" id="copyBtn" onclick="copyEmail()">
+          نسخ العنوان
+        </button>
+      </div>
+    </section>
+
+    <footer>
+      منيره القحطاني &bull; <span id="year"></span>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+    function copyEmail() {
+      navigator.clipboard.writeText('munira4f@gmail.com').then(() => {
+        const btn = document.getElementById('copyBtn');
+        const originalText = btn.textContent;
+        btn.textContent = 'تم النسخ ✓';
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
